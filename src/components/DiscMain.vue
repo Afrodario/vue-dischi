@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <div class="row row-cols-5">
+      <div class="row row-cols-5 g-5">
         <DiscCard v-for="(disc, index) in discList.response"
             :key="index"
             :disc="disc"/>
@@ -43,5 +43,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+main {
+    background-color: #1e2d3b;
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="col disc-card">
+    <div class="col text-center disc-card p-3">
         <img class="img-thumbnail" :src="disc.poster">
         <h1>{{disc.title}}</h1>
         <h2>{{disc.author}}</h2>
@@ -18,6 +18,19 @@ export default {
 
 <style scoped lang="scss">
     .disc-card {
-        border: 1px solid black;
+        background-color: #2e3a46;
+
+        h1 {
+            color: white;
+            text-transform: uppercase;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #808080;
+            font-size: 20px;
+            font-weight: bold;
+        }
     }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <DiscHeader/>
-    <DiscMain/>
+    <DiscMain @genresReady="getGenresList"/>
   </div>
 </template>
 
@@ -14,6 +14,16 @@ export default {
   components: {
     DiscHeader,
     DiscMain
+  },
+  data () {
+    return {
+      capturedGenres: []
+    }
+  },
+  methods: {
+    getGenresList(searchGenres) {
+      console.log("Arriva:" + searchGenres)
+    }
   }
 }
 </script>

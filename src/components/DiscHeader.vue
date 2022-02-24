@@ -2,6 +2,9 @@
   <header>
       <img class="float-start p-1"
       src="https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png">
+      <select>
+        <option></option>
+      </select>
   </header>
 </template>
 

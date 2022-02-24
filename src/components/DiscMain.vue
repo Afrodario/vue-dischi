@@ -1,10 +1,12 @@
 <template>
   <main>
     <div class="container">
-      <div class="row row-cols-5 g-5">
-        <DiscCard v-for="(disc, index) in discList.response"
-            :key="index"
-            :disc="disc"/>
+      <div class="row row-cols-5 g-4">
+        <div
+              v-for="(disc, index) in discList.response"
+              :key="index">
+              <DiscCard :disc="disc"/>
+        </div>
       </div>
     </div>
   </main>

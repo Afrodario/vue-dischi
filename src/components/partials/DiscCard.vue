@@ -1,5 +1,5 @@
 <template>
-    <div class="col text-center disc-card p-3">
+    <div class="col text-center disc-card p-3 h-100">
         <img class="img-thumbnail" :src="disc.poster">
         <h1>{{disc.title}}</h1>
         <h2>{{disc.author}}</h2>

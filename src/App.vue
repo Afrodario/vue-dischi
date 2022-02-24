@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <DiscHeader/>
+    <DiscHeader :genre="capturedGenres"/>
     <DiscMain @genresReady="getGenresList"/>
   </div>
 </template>
@@ -17,12 +17,13 @@ export default {
   },
   data () {
     return {
-      capturedGenres: []
+      capturedGenres: ""
     }
   },
   methods: {
     getGenresList(searchGenres) {
-      console.log("Arriva:" + searchGenres)
+      console.log(searchGenres)
+      this.capturedGenres = searchGenres;
     }
   }
 }

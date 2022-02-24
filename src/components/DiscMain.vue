@@ -1,6 +1,5 @@
 <template>
   <main>
-    <!-- <button @click="$emit('pippo', selectedGenres)">PROVA</button> -->
     <div class="container">
       <div class="row row-cols-5 g-4">
         <div
@@ -43,7 +42,7 @@ export default {
                 }
                 
                 this.selectedGenres.push([...new Set(this.allGenres)]);
-                console.log(this.selectedGenres);
+                console.log("I generi selezionati sono:" + this.selectedGenres);
             })
         },
         emitSelectedGenres() {

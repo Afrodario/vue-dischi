@@ -11,7 +11,7 @@
 export default {
     name: "DiscCard",
     props: {
-        "disc": Object,
+        "disc": Object
     }
 }
 </script>

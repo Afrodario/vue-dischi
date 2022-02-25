@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <DiscHeader :genre="capturedGenres"/>
-    <DiscMain @genresReady="getGenresList"/>
+    <DiscMain @genresReady="getGenresList"
+              @changedGenre="startSearch"/>
   </div>
 </template>
 
@@ -22,8 +23,12 @@ export default {
   },
   methods: {
     getGenresList(searchGenres) {
-      console.log(searchGenres)
-      this.capturedGenres = searchGenres;
+      console.log(searchGenres);
+        this.capturedGenres = searchGenres;
+        console.log(this.capturedGenres)
+    },
+    startSearch() {
+      alert("PROVA")
     }
   }
 }

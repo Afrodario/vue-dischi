@@ -25,7 +25,6 @@ export default {
     data() {
         return {
             discList: [],
-            allGenres: [],
             selectedGenres: []
         }
     },
@@ -38,10 +37,12 @@ export default {
                 
                 for (let i = 0; i < this.discList.length; i++) {
                   
-                  this.allGenres.push(this.discList[i].genre);
+                  if (!this.selectedGenres.includes(this.discList[i].genre)) {
+                      this.selectedGenres.push(this.discList[i].genre);
+                  }
+                  
                 }
                 
-                this.selectedGenres.push([...new Set(this.allGenres)]);
                 console.log("I generi selezionati sono:" + this.selectedGenres);
             })
         },

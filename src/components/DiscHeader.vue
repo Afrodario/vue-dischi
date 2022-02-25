@@ -2,10 +2,12 @@
   <header>
       <img class="float-start p-1"
       src="https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png">
-      <select>
-        <option v-for="(item, index) in genre"
-            :key="index">
-            {{item[index]}}
+      <select> 
+        <option
+            v-for="(item, index) in genre"
+            :key="index"
+            :value="item">
+            {{item}}
             </option>
       </select>
   </header>
@@ -14,8 +16,19 @@
 <script>
 export default {
     name: "DiscHeader",
-    props: ["genre"]
-
+    data() {
+      return {
+        filteredArray: []
+      }
+    },
+    props: ["genre"],
+    methods: {
+      genreFilter() {
+        this.filteredArray = this.genre.filter(object => {
+          return object.includes(this.item.value);
+        })
+      }
+    }
 }
 </script>
 

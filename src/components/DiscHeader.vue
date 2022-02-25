@@ -2,7 +2,7 @@
   <header>
       <img class="float-start p-1"
       src="https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png">
-      <select> 
+      <select @change="getValue($event)"> 
         <option
             v-for="(item, index) in genre"
             :key="index"
@@ -23,13 +23,12 @@ export default {
     },
     props: ["genre"],
     methods: {
-      genreFilter() {
-        this.filteredArray = this.genre.filter(object => {
-          return object.includes(this.item.value);
-        })
+      getValue(event) {
+          this.$emit("changedGenre", event.target.value);
+          console.log(event.target.value)
+        }
       }
     }
-}
 </script>
 
 <style scoped lang="scss">

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row row-cols-5 g-4">
         <div
-              v-for="(disc, index) in discList"
+              v-for="(disc, index) in filteredDiscs"
               :key="index">
               <DiscCard :disc="disc"/>
         </div>
@@ -21,12 +21,27 @@ export default {
     components: {
       DiscCard,
     },
+    props: {
+      selectedGenre: String
+    },
 
     data() {
         return {
             discList: [],
             selectedGenres: []
         }
+    },
+
+    computed: {
+      filteredDiscs() {
+        if (this.selectedGenre == "") {
+          return this.discList;
+        } else {
+        return this.discList.filter(item => {
+          return item.genre == this.selectedGenre;
+        })
+        } 
+      }
     },
 
     methods: {
@@ -61,5 +76,9 @@ export default {
 <style scoped lang="scss">
 main {
     background-color: #1e2d3b;
+
+    .row {
+      padding-bottom: 100px;
+    }
 }
 </style>

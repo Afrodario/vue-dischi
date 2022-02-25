@@ -3,7 +3,7 @@
     <DiscHeader :genre="capturedGenres"
                 @changedGenre="startSearch"/>
     <DiscMain @genresReady="getGenresList"
-              />
+              :selectedGenre="selectedGenre"/>
   </div>
 </template>
 
@@ -19,7 +19,8 @@ export default {
   },
   data () {
     return {
-      capturedGenres: ""
+      capturedGenres: [],
+      selectedGenre: ""
     }
   },
   methods: {
@@ -29,7 +30,9 @@ export default {
         console.log(this.capturedGenres)
     },
     startSearch(valueTransmitted) {
-      console.log("Ho ricevuto:" + valueTransmitted)
+      console.log("Ho ricevuto:" + valueTransmitted);
+      this.selectedGenre = valueTransmitted;
+      console.log("Ho assegnato ad una variabile il valore trasmesso " + this.selectedGenre)
     }
   }
 }
@@ -38,5 +41,6 @@ export default {
 <style lang="scss">
 #app {
   font-family: 'Courier New', Courier, monospace;
+  margin-top: -25px;
 }
 </style>

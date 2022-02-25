@@ -1,8 +1,14 @@
 <template>
-  <header>
+  <header class="d-flex justify-content-between align-items-center">
       <img class="float-start p-1"
       src="https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png">
-      <select @change="getValue($event)"> 
+      
+      <!-- La soluzione più semplice è legare un v-model ad option e riversarlo
+      in una variabile vuota in data, poi lanciare la emit direttamente al change
+      senza ricorrere a metodi-->
+      <select v-model="targetGenre"
+      @change="getValue(targetGenre)"> 
+        <option value="">Tutti i generi</option>
         <option
             v-for="(item, index) in genre"
             :key="index"
@@ -16,16 +22,20 @@
 <script>
 export default {
     name: "DiscHeader",
+
     data() {
       return {
-        filteredArray: []
+        targetGenre: ""
       }
     },
-    props: ["genre"],
+
+    props: {
+      "genre": Array
+      },
+
     methods: {
-      getValue(event) {
-          this.$emit("changedGenre", event.target.value);
-          console.log(event.target.value)
+      getValue() {
+          this.$emit("changedGenre", this.targetGenre);
         }
       }
     }
@@ -38,6 +48,13 @@ header {
 
   img {
     height: 50px;
+  }
+
+  select {
+    margin-right: 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding: 10px;
   }
 }
 </style>
